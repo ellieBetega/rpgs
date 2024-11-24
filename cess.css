@@ -1,0 +1,210 @@
+body {
+  margin: 0;
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url(imags/inicio.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.game-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 90vw;
+  max-width: 500px;
+  height: 90vw;
+  max-height: 500px;
+  background-color: blanchedalmond;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #fff;
+  margin: 10px 0;
+  overflow: hidden; /* Impede que elementos ultrapassem os limites */
+}
+
+.player {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-image: url(imags/guerrei.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  bottom: 20px; 
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.mons {
+  height: 40%;
+  line-height: normal;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#img {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10vw;
+  max-width: 50px;
+  height: auto;
+  aspect-ratio: 1/1;
+}
+
+.chest {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  background-color: #8B4513;
+  display: none;
+}
+
+.divs {
+  color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 300px;
+  font-size: clamp(16px, 5vw, 25px);
+  align-items: center;
+}
+
+.but {
+  margin: 2px;
+  padding: 8px 16px;
+  font-size: clamp(14px, 4vw, 20px);
+  width: 100%;
+  max-width: 200px;
+}
+
+p {
+  color: aliceblue;
+}
+
+.acoes {
+  margin-top: 10px;
+  display: none;
+  width: 100%;
+  text-align: center;
+}
+
+.health-bars {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: rgb(255, 0, 0);
+  z-index: 1000;
+  width: 90%;
+  max-width: 400px;
+}
+
+@media (min-width: 768px) {
+  .health-bars {
+      flex-direction: row;
+      gap: 20px;
+  }
+}
+
+.health-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #ce1f1f;
+  border: 2px solid #ff0000;
+  position: relative;
+  overflow: hidden;
+}
+
+.health-fill {
+  height: 100%;
+  background-color: #ff0000;
+  transition: width 0.3s;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.health-text {
+  text-align: center;
+  margin-bottom: 5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  font-size: clamp(14px, 4vw, 18px);
+}
+
+.player-name {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: clamp(14px, 4vw, 18px);
+  margin-bottom: 5px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+#nome {
+  width: 100%;
+  max-width: 200px;
+  padding: 8px;
+  font-size: clamp(14px, 4vw, 18px);
+  margin-bottom: 10px;
+}
+
+#abrirBau {
+  display: none;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.mensagem-vitoria, .mensagem-derrota {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 48px;
+  font-weight: bold;
+  z-index: 2000;
+  text-align: center;
+  animation: aparecer 0.5s ease-in;
+}
+
+.mensagem-derrota {
+  background-color: rgba(139, 0, 0, 0.8);
+  color: #ff0000;
+}
+
+@keyframes aparecer {
+  from {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.5);
+  }
+  to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+  }
+}
